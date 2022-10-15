@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +17,18 @@
             const date = new Date()
             const days = Math.floor((nilou - date) / 86400000)
             const hours = Math.floor((nilou - date) / 3600000) - days * 24
-            const minutes = Math.floor((nilou - date) / 60000) - hours * 60
-            const seconds = Math.floor((nilou - date) / 1000) - minutes * 60 - hours * 3600
+            const minutes = Math.floor((nilou - date) / 60000) - hours * 60 - days * 1440
+            const seconds = Math.floor((nilou - date) / 1000) - minutes * 60 - hours * 3600 - days * 86400
             let str = ""
             if (days > 0) str += days + "d"
             if (hours > 0) str += hours + "h"
-            if (minutes > 0) str += minutes + "m"
+            if (minutes > 0) { str += minutes + "m" } else console.log(minutes)
             if (seconds > 0) str += seconds + "s"
             h1.innerHTML = str
         }, 1000);
     };
 </script>
+
 <body>
     <div style="font-size:50px;text-align:center">距离纳西妲卡池还剩下：</div>
     <img style="display:block;margin: 0 auto; width: 30%;"
